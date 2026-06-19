@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FIFA World Cup Sweepstake Leaderboard</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="eyebrow">FIFA World Cup 2026 Sweepstake</p>
+      <h1>Leaderboard & Standings</h1>
+      <p class="subtitle">Data is loaded directly from the Excel file in this website folder. No API is used.</p>
+    </div>
+    <div class="status-card">
+      <span id="loadStatus">Loading Excel…</span>
+      <small id="lastUpdated"></small>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls">
+      <button id="refreshBtn" type="button">Refresh from Excel</button>
+      <label class="file-picker">Use another Excel file
+        <input id="fileInput" type="file" accept=".xlsx,.xls" />
+      </label>
+      <input id="searchInput" type="search" placeholder="Search participant or team" />
+    </section>
+
+    <section class="summary-grid" id="summaryGrid"></section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>Participants Total Points</h2>
+        <p>Sorted by Total Points from the Participants sheet.</p>
+      </div>
+      <div class="table-wrap">
+        <table id="leaderboardTable"></table>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="section-title">
+        <h2>FIFA World Cup Standings</h2>
+        <p>Loaded from the standings sheet.</p>
+      </div>
+      <div id="groupTabs" class="tabs"></div>
+      <div class="table-wrap">
+        <table id="standingsTable"></table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Update the Excel file and re-upload it to GitHub to update this page.
+  </footer>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
